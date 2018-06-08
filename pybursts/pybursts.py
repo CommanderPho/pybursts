@@ -118,12 +118,12 @@ def kleinberg(offsets, s=2, gamma=1, n=None, T=None, k=None):
         elif q[t] < prev_q:
             num_levels_closed = prev_q - q[t]
             for i in range(int(num_levels_closed)):
-                bursts[stack[stack_counter], 2] = offsets[t]
+                bursts[int(stack[stack_counter]), 2] = offsets[t]
                 stack_counter -= 1
         prev_q = q[t] 
 
     while stack_counter >= 0:
-        bursts[stack[stack_counter], 2] = offsets[np.size(gaps)]
+        bursts[int(stack[stack_counter]), 2] = offsets[np.size(gaps)]
         stack_counter -= 1
 
     return bursts
